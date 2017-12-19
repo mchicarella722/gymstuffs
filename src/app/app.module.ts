@@ -15,7 +15,8 @@ import { ExerciseComponent } from './exercise/exercise.component';
     NavComponent,
     HeaderComponent,
     FooterComponent,
-    IndexComponent
+    IndexComponent,
+    ExerciseComponent
   ],
   imports: [
     BrowserModule,

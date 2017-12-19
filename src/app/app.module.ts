@@ -7,6 +7,7 @@ import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { IndexComponent } from './index/index.component';
+import { ExerciseComponent } from './exercise/exercise.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { IndexComponent } from './index/index.component';
      // { path: "login", component: LoginrComponent },
      // { path: "you", component: YouComponent },
      // { path: "workouts", component: WorkoutsComponent },
-     // { path: "exercises", component: ExercisesComponent },
+     { path: "exercise", component: ExerciseComponent },
      // { path: "sharing", component: SharingComponent }, 
      // { path: "play", component: PlayComponent },
       { path: "", pathMatch: "full", redirectTo: "/home" }

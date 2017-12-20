@@ -1,8 +1,4 @@
-.login-clean {
-    background:#f1f7fc;
-    padding:80px 0;
-  }
-  
+
   .login-clean form {
     max-width:320px;
     width:90%;
@@ -61,9 +57,21 @@
     text-decoration:none;
   }
   
-  .login-clean form .forgot:hover, .login-clean form .forgot:active {
+  .login-clean form .register:hover, .login-clean form .register:active {
     opacity:1;
     text-decoration:none;
   }
+  .login-clean form .register {
+    display:block;
+    text-align:center;
+    font-size:12px;
+    color:#6f7a85;
+    opacity:0.9;
+    text-decoration:none;
+  }
   
+  .login-clean form .register:hover, .login-clean form .register:active {
+    opacity:1;
+    text-decoration:none;
+  } 
   

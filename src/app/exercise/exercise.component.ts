@@ -16,20 +16,10 @@ export class ExerciseComponent implements OnInit {
 }
 export class Exercise {
   name: string;
-//  reps: number;
-//  sets: number;
-//  weight: number;
-//  weight_unit: string;
-//  time: number;
-//  time_unit: string;
+
   constructor(name: string) {
       this.name = name;
-     // this.reps = 0;
-     // this.reps = 0;
-     // this.weight = 0;
-     // this.weight_unit = "";
-     // this.time = 0;
-     // this.time_unit = "";
+    
   }
 }
 
@@ -49,13 +39,18 @@ export class Recorder{
           this.completed.map(x => `<li class="list-group-item">${x.name}</li>`).join("")
       )
   }
+  update(){
+    $.getJSON("http://localhost:4201/exercises").done( data => {
+        this.exercises = data; 
+  })
+}
 
   init(){
-      return $.when(
-          $.getJSON("http://localhost:4201/exercises").done( data => {
-              this.exercises = data;
-          })
-      );
+    return $.when(
+        $.getJSON("http://localhost:4201/exercises").done( data => {
+            this.exercises = data;
+        })
+    );
   }
 }
 
@@ -63,7 +58,9 @@ const recorder = new Recorder();
 let empty:boolean = true;
 
 recorder.init().done(() => {
+  recorder.update();
   recorder.drawExercises();
+  
 
   $('.list-group-item').click(function(e) {
       e.preventDefault();

@@ -10,6 +10,7 @@ import { IndexComponent } from './index/index.component';
 import { ExerciseComponent } from './exercise/exercise.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,18 +21,17 @@ import { RegisterComponent } from './register/register.component';
     IndexComponent,
     ExerciseComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       { path: "home", component: IndexComponent },
       { path: "login", component: LoginComponent },
-     // { path: "you", component: YouComponent },
-     // { path: "workouts", component: WorkoutsComponent },
-     { path: "exercise", component: ExerciseComponent },
-     // { path: "sharing", component: SharingComponent }, 
-     // { path: "play", component: PlayComponent },
+      { path: "register", component: RegisterComponent },
+      { path: "exercise", component: ExerciseComponent },
+      { path: "profile", component: ProfileComponent },
       { path: "", pathMatch: "full", redirectTo: "/home" }
     ])
   ],

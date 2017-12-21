@@ -1,4 +1,4 @@
 module.exports={
-    database: 'mongodb://localhost:27017/fitnessTracker',
-    secret: 'notsosecretsecret'
+    database: 'mongodb://108.29.186.67:27017/FitnessTracker',
+   // secret: 'notsosecretsecret'
 }

@@ -5,9 +5,10 @@ const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const exerciseController = require("./exerciseController");
+//mongoose.Promise = global.Promise;
 
 const dbconfig = require('./config/database');
-mongoose.connect(dbconfig.databse);
+mongoose.connect(dbconfig.database);
 mongoose.connection.on('connected',()=>{
   console.log("Connected to MongoDB"+dbconfig.database)
 });

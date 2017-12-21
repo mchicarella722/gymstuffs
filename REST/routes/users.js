@@ -1,12 +1,26 @@
 
 const express = require('express');
 const router = express.Router();
+const User = require('../dbschema/User');
+const pport = require('passport');
+const token = require('jsonwebtoken');
 
-router.get('/register', (req, res, next)=>
+router.post('/register', (req, res, next)=>
     {
-        res.send('REGISTER');
-    }
-);
+        let newUser = new User({
+            email: req.body.email,
+            username: req.body.username,
+            password: req.body.password
+        });
+
+    User.addUser(newUser, (err,user) => {
+        if(err){
+            res.json({success: false, msg: 'Failed to Register User'});
+        } else {
+            res.json({success: true, msg: 'Registered Successfully'});
+        }
+    });
+});
 
 router.post('/auth', (req, res, next)=>
     {

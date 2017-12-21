@@ -21,6 +21,26 @@ var UserSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
+    height: {
+      type: Number,
+      required: false
+    },
+    weight: {
+      type: Number,
+      required: false
+    },
+    name: { 
+      type: String,
+      required: false
+    },
+    hometown: {
+      type: String,
+      required: false
+    },
+    birthday: {
+      type: Date,
+      required: false
+    }
   });
 
   var User = module.exports = mongoose.model('User', UserSchema);
@@ -49,5 +69,8 @@ module.exports.comparePassword =  function(cPassword, hash, callback){
     if(err) throw err;
     callback(null,isMatch);
   });
+module.exports.updateUserProfile = function(existingUser, callback){
+  existingUser.save(callbacK());
+}
 }
    

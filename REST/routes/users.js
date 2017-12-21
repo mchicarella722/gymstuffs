@@ -58,8 +58,30 @@ router.post('/auth', (req, res, next)=>
  });
 router.get('/profile', (req, res, next)=>
     {
-        res.send('PROFILE');
-    }
-);
+        res.json({user: req.user})
+    });
+router.post('/updateProfile', pport.authenticate('jwt', {session:false}), (req, res, next)=>
+    {
+        user=User.getUserByUsername(req.body.username,(err, user) => {
+            if(err) throw err;
+            if(!user){
+              return res.json({success: false, msg: 'User not found'});
+            }
+        });
+        user.email = req.body.email;
+        user.username = req.body.username;
+        user.height = req.body.height;
+        user.weight = req.body.weight;
+        user.name = req.body.name;
+        user.hometown = req.body.hometown;
+        user.birthday = req.body.birthday;
 
+        User.updateUserProfile(user,(err,user) => {
+            if(err){
+                res.json({success: false, msg: 'Failed to update User'});
+            } else {
+                res.json({success: true, msg: 'Updated Successfully'});
+            }
+        });
+    });
 module.exports = router;

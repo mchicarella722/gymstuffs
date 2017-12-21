@@ -18,6 +18,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ValidateService} from './services/validate.service';
 import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -41,12 +42,12 @@ import { AuthService } from './services/auth.service';
       { path: "home", component: IndexComponent },
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent },
-      { path: "exercise", component: ExerciseComponent },
-      { path: "profile", component: ProfileComponent },
+      { path: "exercise", component: ExerciseComponent,canActivate:[AuthGuard] },
+      { path: "profile", component: ProfileComponent, canActivate:[AuthGuard] },
       { path: "", pathMatch: "full", redirectTo: "/home" }
     ])
   ],
-  providers: [ValidateService,FlashMessagesService,AuthService],
+  providers: [ValidateService,FlashMessagesService,AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

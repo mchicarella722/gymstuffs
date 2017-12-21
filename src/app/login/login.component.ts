@@ -30,13 +30,12 @@ export class LoginComponent implements OnInit {
     }
     this.authService.authenticateUser(user).subscribe(data=> {
       if(data.success){
-        this.flashMessages.show("Success",{cssClass: 'alert-success'});
-        this.router.navigateByUrl('/home');
-        return true;
+        this.authService.storeUserData(data.token, data.user);
+        this.flashMessages.show("Success",{cssClass: 'alert-success',delay:2000});
+        this.router.navigate(['/home']);
       }else{
         this.flashMessages.show("Wrong username or Password",{cssClass: 'alert-danger'});
-        this.router.navigateByUrl('/login');
-        return true; 
-    });
+        this.router.navigate(['/login']);
+    }});
   }
 }

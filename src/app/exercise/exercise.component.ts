@@ -8,7 +8,8 @@ import * as $ from 'jquery';
 })
 export class ExerciseComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
   }

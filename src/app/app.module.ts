@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -12,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 
+import { ValidateService} from './services/validate.service';
+import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +30,8 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    FlashMessagesModule,
     RouterModule.forRoot([
       { path: "home", component: IndexComponent },
       { path: "login", component: LoginComponent },
@@ -35,7 +41,7 @@ import { ProfileComponent } from './profile/profile.component';
       { path: "", pathMatch: "full", redirectTo: "/home" }
     ])
   ],
-  providers: [],
+  providers: [ValidateService,FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

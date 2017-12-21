@@ -1,15 +1,19 @@
-<form action="">
+<form (submit)="onRegisterSubmit()" ngNativeValidate>
+  <div class="form-group">
+    <label for="">Email</label>
+    <input type="email" class="form-control" [(ngModel)] = "email"  name="email" required placeholder="Enter email">
+  </div>
   <div class="form-group">
     <label for="">Username</label>
-    <input type="text" class="form-control"  name="username"  placeholder="Enter username">
+    <input type="text" class="form-control" [(ngModel)] = "username" name="username" required placeholder="Enter username">
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control"  name="password"  id="password" placeholder="Password">
+    <input type="password" class="form-control" [(ngModel)]="password"  name="password" required  id="password" placeholder="Password">
   </div>
   <div class="form-group">
     <label for="verify-password">Password</label>
-    <input type="password" class="form-control"  name="password-verify"  id="verify-password" placeholder="Verify Password">
+    <input type="password" class="form-control"  [(ngModel)]=confPass name="confPass" required id="confPass" placeholder="Verify Password">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

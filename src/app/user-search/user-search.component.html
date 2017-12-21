@@ -1,4 +1,4 @@
   <div class="form-group">
     <label for="">Username</label>
-    <input type="text" class="form-control" onInput="typeAhead()" [(ngModel)]="typeAheadQuery" lookahead="state for username in usernames | filter:$viewValue | limitTo:8" name="lookahead" id="lookahead"  placeholder="Enter a username">
+    <input type="text" class="form-control" (change)="typeAhead()" [(ngModel)]="typeAheadQuery" lookahead="state for username in usernames | filter:$viewValue | limitTo:8" name="lookahead" id="lookahead"  placeholder="Enter a username">
   </div>

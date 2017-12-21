@@ -32,6 +32,11 @@ server.use(cors());
 server.use(express.static(path.join(path.join('../', __dirname),"src")));
 server.use(bodyParser.json());
 
+server.use(passport.initialize());
+server.use(passport.session());
+
+require('./config/passport')(passport);
+
 server.use('/users', users);
 
 server.use("/", exerciseController.router );

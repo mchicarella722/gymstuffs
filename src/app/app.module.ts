@@ -18,7 +18,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { ValidateService} from './services/validate.service';
 import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
 import { AuthService } from './services/auth.service';
-import { HttpModule } from '@angular/http/src/http_module';
 
 @NgModule({
   declarations: [

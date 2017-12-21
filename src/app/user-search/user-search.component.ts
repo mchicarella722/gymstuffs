@@ -8,11 +8,11 @@ import { SearchService } from '../services/search.service';
 })
 export class UserSearchComponent implements OnInit {
   typeAheadQuery: String;
-  usernames = new Array();
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
   }
+
   typeAhead(){
     var query = this.typeAheadQuery;
     this.searchService.userSearch(query).subscribe(data => {

@@ -84,4 +84,28 @@ router.post('/updateProfile', pport.authenticate('jwt', {session:false}), (req, 
             }
         });
     });
+
+router.post('/userSearch',(req, res)=>
+{
+    var regex = new RegExp(req.body.query+'*', 'i');
+
+    var query = User.find({'username': regex}, function(err,docs){
+        
+    });
+        
+     // Execute query in a callback and return users list
+    query.exec(function(err, users) {
+        if (!err) {
+            // Method to construct the json result set
+                res.send(users, {
+                    'Content-Type': 'application/json'
+                }, 200);
+        } else {
+            res.send(JSON.stringify(err), {
+                'Content-Type': 'application/json'
+            }, 404);
+        }
+    });
+});
+
 module.exports = router;

@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "bash start.sh",
+    "c9": "ng serve --public fitness-tracker-dsloan.c9users.io:8080 --host $IP --port $PORT",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

@@ -33,7 +33,7 @@ import { UserSearchComponent } from './user-search/user-search.component';
     RegisterComponent,
     ProfileComponent,
     UserSearchComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,8 @@ import { UserSearchComponent } from './user-search/user-search.component';
       { path: "register", component: RegisterComponent },
       { path: "exercise", component: ExerciseComponent,canActivate:[AuthGuard] },
       { path: "profile", component: ProfileComponent, canActivate:[AuthGuard] },
-      { path: "userSearch", component: UserSearchComponent },
+      { path: "userSearch", component: UserSearchComponent, canActivate: [AuthGuard] },
+      { path: "calendar", component: UserSearchComponent, canActivate: [AuthGuard] },
       { path: "", pathMatch: "full", redirectTo: "/home" }
     ])
   ],

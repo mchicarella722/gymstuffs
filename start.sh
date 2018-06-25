@@ -1,2 +1,2 @@
 ng serve &
-node src/REST/server.js
+node REST/server.js

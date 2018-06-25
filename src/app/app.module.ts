@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+<<<<<<< HEAD
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -52,6 +53,22 @@ import { UserSearchComponent } from './user-search/user-search.component';
     ])
   ],
   providers: [ValidateService,FlashMessagesService,AuthService,AuthGuard],
+=======
+import { NgModule } from '@angular/core';
+
+
+import { AppComponent } from './app.component';
+
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+>>>>>>> f9c56d5d0cb491f3cffebc7ed54ac24e2a060b4e
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,6 +20,7 @@ import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messa
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { UserSearchComponent } from './user-search/user-search.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { UserSearchComponent } from './user-search/user-search.component';
     RegisterComponent,
     ProfileComponent,
     UserSearchComponent,
-    
+    CalendarComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -44,9 +46,10 @@ import { UserSearchComponent } from './user-search/user-search.component';
       { path: "home", component: IndexComponent },
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent },
-      { path: "exercise", component: ExerciseComponent,canActivate:[AuthGuard] },
-      { path: "profile", component: ProfileComponent, canActivate:[AuthGuard] },
-      { path: "userSearch", component: UserSearchComponent },
+      { path: "exercise", component: ExerciseComponent,canActivate: [AuthGuard] },
+      { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
+      { path: "userSearch", component: UserSearchComponent, canActivate: [AuthGuard] },
+      { path: "calendar", component: CalendarComponent, canActivate: [AuthGuard] },
       { path: "", pathMatch: "full", redirectTo: "/home" }
     ])
   ],

@@ -31,15 +31,15 @@ router.post('/auth', (req, res, next)=>
         if(err) throw err;
         if(!user){
           return res.json({success: false, msg: 'User not found'});
-        } 
+        }
 
        User.comparePassword(password, user.password, (err, isMatch) => {
         if(err) throw err;
-        if(isMatch){    
-          const token = jwt.sign(user, config.secret, {
+        if(isMatch){
+          const token = jwt.sign(user.toObject(), config.secret, {
             expiresIn: 604800 // 1 week
           });
-  
+
           res.json({
             success: true,
             token: 'JWT '+token,
@@ -90,9 +90,9 @@ router.post('/userSearch',(req, res)=>
     var regex = new RegExp(req.body.query+'*', 'i');
 
     var query = User.find({'username': regex}, function(err,docs){
-        
+
     });
-        
+
      // Execute query in a callback and return users list
     query.exec(function(err, users) {
         if (!err) {

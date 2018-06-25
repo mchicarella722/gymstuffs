@@ -1,10 +1,10 @@
-<<<<<<< HEAD
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
 /dist
 /tmp
 /out-tsc
+package-lock.json
 
 # dependencies
 /node_modules
@@ -106,4 +106,3 @@ typings/
 
 # next.js build output
 .next
->>>>>>> f9c56d5d0cb491f3cffebc7ed54ac24e2a060b4e

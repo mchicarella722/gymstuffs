@@ -29,7 +29,7 @@ var UserSchema = new mongoose.Schema({
       type: Number,
       required: false
     },
-    name: { 
+    name: {
       type: String,
       required: false
     },
@@ -40,15 +40,20 @@ var UserSchema = new mongoose.Schema({
     birthday: {
       type: Date,
       required: false
+    },
+    roles: {
+      type: Array,
+      required: true,
+      default: ['User']
     }
   });
 
   var User = module.exports = mongoose.model('User', UserSchema);
-  
+
   module.exports.getUserbyId = function(id,callback){
     User.findById(id,callback);
   }
-  
+
   module.exports.getUserByUsername = function(username,callback){
     const query = {username:username}
     User.findOne(query, callback);
@@ -73,4 +78,4 @@ module.exports.updateUserProfile = function(existingUser, callback){
   existingUser.save(callbacK());
 }
 }
-   
+

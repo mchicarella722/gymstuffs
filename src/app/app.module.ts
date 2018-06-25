@@ -56,9 +56,9 @@ import { AdminExerciseComponent } from './admin-exercise/admin-exercise.componen
       { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
       { path: "userSearch", component: UserSearchComponent, canActivate: [AuthGuard] },
       { path: "calendar", component: CalendarComponent, canActivate: [AuthGuard] },
-      { path: "/admin", component: AdminComponent canActivate: [AuthGuard] },
-      { path: "/exercise-admin", component: AdminExerciseComponent canActivate: [AuthGuard] },
-      { path: "/user-admin", component: AdminUserComponent canActivate: [AuthGuard] },
+      { path: "admin", component: AdminComponent, canActivate: [AuthGuard] },
+      { path: "exercise-admin", component: AdminExerciseComponent, canActivate: [AuthGuard] },
+      { path: "user-admin", component: AdminUserComponent, canActivate: [AuthGuard] },
       { path: "", pathMatch: "full", redirectTo: "/home" }
     ])
   ],

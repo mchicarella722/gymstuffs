@@ -21,6 +21,9 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminUserComponent } from './admin-user/admin-user.component';
+import { AdminExerciseComponent } from './admin-exercise/admin-exercise.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { CalendarComponent } from './calendar/calendar.component';
     ProfileComponent,
     UserSearchComponent,
     CalendarComponent,
+    AdminComponent,
+    AdminUserComponent,
+    AdminExerciseComponent,
 
   ],
   imports: [
@@ -50,6 +56,9 @@ import { CalendarComponent } from './calendar/calendar.component';
       { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
       { path: "userSearch", component: UserSearchComponent, canActivate: [AuthGuard] },
       { path: "calendar", component: CalendarComponent, canActivate: [AuthGuard] },
+      { path: "/admin", component: AdminComponent canActivate: [AuthGuard] },
+      { path: "/exercise-admin", component: AdminExerciseComponent canActivate: [AuthGuard] },
+      { path: "/user-admin", component: AdminUserComponent canActivate: [AuthGuard] },
       { path: "", pathMatch: "full", redirectTo: "/home" }
     ])
   ],

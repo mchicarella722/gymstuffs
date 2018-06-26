@@ -47,7 +47,8 @@ router.post('/auth', (req, res, next)=>
               id: user._id,
               name: user.name,
               username: user.username,
-              email: user.email
+              email: user.email,
+              roles: user.roles
             }
           });
         } else {

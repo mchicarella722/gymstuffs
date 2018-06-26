@@ -19,6 +19,7 @@ import { ValidateService} from './services/validate.service';
 import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { RoleGuard } from './guards/role.guard';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { AdminComponent } from './admin/admin.component';
@@ -56,9 +57,18 @@ import { AdminExerciseComponent } from './admin-exercise/admin-exercise.componen
       { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
       { path: "userSearch", component: UserSearchComponent, canActivate: [AuthGuard] },
       { path: "calendar", component: CalendarComponent, canActivate: [AuthGuard] },
-      { path: "admin", component: AdminComponent, canActivate: [AuthGuard] },
-      { path: "exercise-admin", component: AdminExerciseComponent, canActivate: [AuthGuard] },
-      { path: "user-admin", component: AdminUserComponent, canActivate: [AuthGuard] },
+      { path: "admin", component: AdminComponent, canActivate: [RoleGuard],
+        data: {
+          expectedRole: 'admin'
+      } },
+      { path: "exercise-admin", component: AdminExerciseComponent, canActivate: [RoleGuard], 
+        data: {
+        expectedRole: 'admin'
+      } },
+      { path: "user-admin", component: AdminUserComponent, canActivate: [RoleGuard], 
+        data: {
+					expectedRole: 'admin'
+			} },
       { path: "", pathMatch: "full", redirectTo: "/home" }
     ])
   ],
